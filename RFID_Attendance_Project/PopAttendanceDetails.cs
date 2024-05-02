@@ -11,6 +11,7 @@ using System.Data.Common;
 using RFID_Attendance_Project.Modules;
 using RFID_Attendance_Project.UserControls;
 using MySql.Data.MySqlClient;
+using OfficeOpenXml;
 
 namespace RFID_Attendance_Project
 {
@@ -22,6 +23,7 @@ namespace RFID_Attendance_Project
         {
             InitializeComponent();
             lblClass.Text = selectedClass;
+            ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
         }
 
         protected override CreateParams CreateParams
@@ -198,21 +200,47 @@ namespace RFID_Attendance_Project
 
         private void btnExport_Click(object sender, EventArgs e)
         {
+            ExportToExcel(dgvDetailsResult);
+        }
+
+        private void ExportToExcel(DataGridView dataGridView)
+        {
             try
             {
-                SaveFileDialog openFileDialog = new SaveFileDialog();
-                openFileDialog.InitialDirectory = "C:\\Users\\TEDD\\Documents";
-                openFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|Excel 2007 (*.xls)|*.xls";
-                openFileDialog.FilterIndex = 1;
-
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                using (ExcelPackage excelPackage = new ExcelPackage())
                 {
-                    DataTable dt = Excel.DataGridView_To_Datatable(dgvDetailsResult);
-                    dt.exportToExcel(openFileDialog.FileName);
-                    MessageBox.Show("Table exported successfully", "Export Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Sheet1");
+
+                    for (int i = 1; i <= dataGridView.Columns.Count; i++)
+                    {
+                        worksheet.Cells[1, i].Value = dataGridView.Columns[i - 1].HeaderText;
+                    }
+
+                    for (int i = 0; i < dataGridView.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < dataGridView.Columns.Count; j++)
+                        {
+                            worksheet.Cells[i + 2, j + 1].Value = dataGridView.Rows[i].Cells[j].Value.ToString();
+                        }
+                    }
+
+                    SaveFileDialog saveFileDialog = new SaveFileDialog();
+                    saveFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+                    saveFileDialog.FilterIndex = 1;
+                    saveFileDialog.RestoreDirectory = true;
+
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        string filePath = saveFileDialog.FileName;
+                        excelPackage.SaveAs(new System.IO.FileInfo(filePath));
+                        MessageBox.Show("Export Successful!");
+                    }
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
     }
 }

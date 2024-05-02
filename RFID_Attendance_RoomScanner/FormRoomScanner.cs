@@ -51,6 +51,7 @@ namespace RFID_Attendance_RoomScanner
             selected_room = Properties.Settings.Default.Room;
             lblRoom.Text = selected_room;
             txtIDBox.Focus();
+            StartCarousel();
         }
 
         public class JSONStudent
@@ -610,11 +611,131 @@ namespace RFID_Attendance_RoomScanner
             }
         }
 
+        private async Task PoolEvents()
+        {
+            string query = "SELECT event_pic FROM tbl_events";
+            int batchSize = 1000;
+            int offset = 0;
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    await connection.OpenAsync();
+
+                    List<Dictionary<string, string>> resultSet = new List<Dictionary<string, string>>();
+                    while (true)
+                    {
+                        string batchQuery = $"{query} LIMIT {offset},{batchSize}";
+                        using (MySqlCommand command = new MySqlCommand(batchQuery, connection))
+                        using (var reader = await Task.Run(() => command.ExecuteReader()))
+                        {
+                            if (!reader.HasRows)
+                                break;
+
+                            while (await reader.ReadAsync())
+                            {
+                                Dictionary<string, string> row = new Dictionary<string, string>();
+                                for (int i = 0; i < reader.FieldCount; i++)
+                                {
+                                    if (reader.IsDBNull(i))
+                                        row[reader.GetName(i)] = null;
+                                    else if (reader.GetFieldType(i) == typeof(byte[]))
+                                        row[reader.GetName(i)] = Convert.ToBase64String((byte[])reader[i]);
+                                    else
+                                        row[reader.GetName(i)] = reader[i].ToString();
+                                }
+                                resultSet.Add(row);
+                            }
+                        }
+                        offset += batchSize;
+                    }
+
+                    using (StreamWriter writer = new StreamWriter("eventpics.json"))
+                    using (JsonWriter jsonWriter = new JsonTextWriter(writer))
+                    {
+                        JsonSerializer serializer = new JsonSerializer();
+                        serializer.Serialize(jsonWriter, resultSet);
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Error loading data: {ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private async void FormRoomScanner_Shown(object sender, EventArgs e)
         {
             await PoolSchedule();
             await PoolStudents();
             await PoolInstructors();
+            await PoolEvents();
+        }
+
+        private DataTable imageDataTable;
+        private int currentIndex = 0;
+
+        private void StartCarousel()
+        {
+            imageDataTable = FetchImageDataFromJson();
+            DisplayCurrentImage();
+
+            timerCarousel.Interval = 6000;
+            timerCarousel.Tick += timerCarousel_Tick;
+            timerCarousel.Start();
+        }
+
+        private void timerCarousel_Tick(object sender, EventArgs e)
+        {
+            if (imageDataTable.Rows.Count > 0)
+            {
+                currentIndex = (currentIndex + 1) % imageDataTable.Rows.Count;
+                DisplayCurrentImage();
+            }
+            else
+            {
+                currentIndex = 0;
+            }
+        }
+
+
+        private DataTable FetchImageDataFromJson()
+        {
+            DataTable dataTable = new DataTable();
+
+            try
+            {
+                string jsonFilePath = "eventpics.json";
+                string jsonData = File.ReadAllText(jsonFilePath);
+                dataTable = JsonConvert.DeserializeObject<DataTable>(jsonData);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return dataTable;
+        }
+
+        private void DisplayCurrentImage()
+        {
+            try
+            {
+                if (imageDataTable != null && imageDataTable.Rows.Count > 0)
+                {
+                    string base64ImageData = imageDataTable.Rows[currentIndex]["event_pic"].ToString();
+                    byte[] imageData = Convert.FromBase64String(base64ImageData);
+                    picEvents.Image = Image.FromStream(new MemoryStream(imageData));
+                }
+                else
+                {
+                    picEvents.Image = null;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }

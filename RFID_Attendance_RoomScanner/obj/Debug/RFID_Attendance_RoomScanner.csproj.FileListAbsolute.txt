@@ -23,7 +23,6 @@ C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID
 C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_RoomScanner\bin\Debug\System.Buffers.xml
 C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_RoomScanner\bin\Debug\System.Memory.xml
 C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_RoomScanner\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_RoomScanner\obj\Debug\RFID_Attendance_RoomScanner.csprojResolveAssemblyReference.cache
 C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_RoomScanner\obj\Debug\RFID_Attendance_RoomScanner.FormRoomScanner.resources
 C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_RoomScanner\obj\Debug\RFID_Attendance_RoomScanner.PopSelectRoom.resources
 C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_RoomScanner\obj\Debug\RFID_Attendance_RoomScanner.Properties.Resources.resources
@@ -31,3 +30,4 @@ C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID
 C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_RoomScanner\obj\Debug\RFID_Attendance_RoomScanner.exe
 C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_RoomScanner\obj\Debug\RFID_Attendance_RoomScanner.pdb
 C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_RoomScanner\obj\Debug\RFID_Attendance_RoomScanner.PopRoomSecurity.resources
+C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_RoomScanner\obj\Debug\RFID_Attendance_RoomScanner.csprojResolveAssemblyReference.cache

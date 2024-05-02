@@ -1,7 +1,6 @@
 c:\users\tedd\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Project\bin\Debug\RFID_Attendance_Project.exe.config
 c:\users\tedd\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Project\bin\Debug\RFID_Attendance_Project.exe
 c:\users\tedd\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Project\bin\Debug\RFID_Attendance_Project.pdb
-c:\users\tedd\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Project\obj\Debug\RFID_Attendance_Project.csprojResolveAssemblyReference.cache
 c:\users\tedd\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Project\obj\Debug\RFID_Attendance_Project.Properties.Resources.resources
 c:\users\tedd\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Project\obj\Debug\RFID_Attendance_Project.csproj.GenerateResource.Cache
 c:\users\tedd\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Project\obj\Debug\RFID_Attendance_Project.exe
@@ -62,3 +61,9 @@ C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID
 C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Project\obj\Debug\RFID_Attendance_Project.UserControls.UC_AdminStudents.resources
 C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Project\obj\Debug\RFID_Attendance_Project.PopAdminStudentDetails.resources
 C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Project\obj\Debug\RFID_Attendance_Project.PopAdminStudentSummary.resources
+C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Project\obj\Debug\RFID_Attendance_Project.UserControls.UC_AdminRecords.resources
+C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Project\bin\Debug\EPPlus.dll
+C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Project\bin\Debug\EPPlus.Interfaces.dll
+C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Project\bin\Debug\EPPlus.System.Drawing.dll
+C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Project\bin\Debug\EPPlus.xml
+C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Project\obj\Debug\RFID_Attendance_Project.csprojResolveAssemblyReference.cache

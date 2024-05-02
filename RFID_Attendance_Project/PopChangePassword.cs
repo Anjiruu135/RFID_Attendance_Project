@@ -23,6 +23,16 @@ namespace RFID_Attendance_Project
             InitializeComponent();
         }
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
+
         private void btnChangePass_Click(object sender, EventArgs e)
         {
             var passwordModel = CreatePasswordModelFromForm();
@@ -47,7 +57,7 @@ namespace RFID_Attendance_Project
                         MySqlConnection conn = new MySqlConnection(connectionString);
                         MySqlCommand cmd = new MySqlCommand(change_password, conn);
 
-                        cmd.Parameters.AddWithValue("@NewPassword", txtPasswordNew.Text);
+                        cmd.Parameters.AddWithValue("@NewPassword", Encrypt.HashString(txtPasswordNew.Text));
 
                         conn.Open();
                         cmd.ExecuteNonQuery();
@@ -97,7 +107,7 @@ namespace RFID_Attendance_Project
             {
                 using (MySqlCommand cmd = new MySqlCommand(query, con))
                 {
-                    cmd.Parameters.AddWithValue("@Password", password);
+                    cmd.Parameters.AddWithValue("@Password", Encrypt.HashString(password));
                     con.Open();
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {

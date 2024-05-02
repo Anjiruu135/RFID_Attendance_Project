@@ -42,10 +42,10 @@ namespace RFID_Attendance_Project
             {
                 MySqlConnection conn = new MySqlConnection(connectionString);
 
-                string user_query = "SELECT tbl_users.*, tbl_instructors.advisory FROM tbl_users JOIN tbl_instructors on tbl_users.user_id = tbl_instructors.instructor_id Where user_id='" + txtUsername.Text + "' AND password='" + txtPassword.Text + "' AND user_type='user';";
+                string user_query = "SELECT tbl_users.*, tbl_instructors.advisory FROM tbl_users JOIN tbl_instructors on tbl_users.user_id = tbl_instructors.instructor_id Where user_id='" + txtUsername.Text + "' AND password='" + Encrypt.HashString(txtPassword.Text) + "' AND user_type='user';";
                 MySqlCommand cmd_user = new MySqlCommand(user_query, conn);
 
-                string admin_query = "SELECT * FROM tbl_users Where user_id='" + txtUsername.Text + "' AND password='" + txtPassword.Text + "' AND user_type='admin'";
+                string admin_query = "SELECT * FROM tbl_users Where user_id='" + txtUsername.Text + "' AND password='" + Encrypt.HashString(txtPassword.Text) + "' AND user_type='admin'";
                 MySqlCommand cmd_admin = new MySqlCommand(admin_query, conn);
 
                 MySqlDataReader reader_user;

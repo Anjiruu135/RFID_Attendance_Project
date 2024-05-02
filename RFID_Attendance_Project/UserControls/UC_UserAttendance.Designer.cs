@@ -48,7 +48,7 @@
             System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.label4 = new System.Windows.Forms.Label();
             this.chartStudentsPerClass = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSearchBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvClassList = new System.Windows.Forms.DataGridView();
@@ -108,14 +108,15 @@
             title1.Text = "Students per Class Session";
             this.chartStudentsPerClass.Titles.Add(title1);
             // 
-            // textBox1
+            // txtSearchBox
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtSearchBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(141, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(183, 20);
-            this.textBox1.TabIndex = 31;
+            this.txtSearchBox.Location = new System.Drawing.Point(141, 46);
+            this.txtSearchBox.Name = "txtSearchBox";
+            this.txtSearchBox.Size = new System.Drawing.Size(183, 20);
+            this.txtSearchBox.TabIndex = 31;
+            this.txtSearchBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label2
             // 
@@ -149,6 +150,7 @@
             this.dgvClassList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvClassList.BackgroundColor = System.Drawing.Color.White;
             this.dgvClassList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClassList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.class_name});
@@ -359,7 +361,7 @@
             this.Controls.Add(this.chartMostAbsents);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.chartStudentsPerClass);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtSearchBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvClassList);
@@ -383,7 +385,7 @@
 
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartStudentsPerClass;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSearchBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvClassList;

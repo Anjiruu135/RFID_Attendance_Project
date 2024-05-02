@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.Common;
 using MySql.Data.MySqlClient;
 using RFID_Attendance_Project.Modules;
+using OfficeOpenXml;
 
 namespace RFID_Attendance_Project
 {
@@ -21,6 +22,7 @@ namespace RFID_Attendance_Project
         {
             InitializeComponent();
             lblSection.Text = FormLogin.advisory_display;
+            ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
         }
 
         protected override CreateParams CreateParams
@@ -38,12 +40,13 @@ namespace RFID_Attendance_Project
             await LoadStudents();
         }
 
+        DataTable dt = new DataTable();
+
         private async Task LoadStudents()
         {
             try
             {
                 string loadStudentsQuery = "SELECT student_id, tbl_students.firstname, tbl_students.middlename, tbl_students.lastname, tbl_students.card_id,  tbl_students.contact, parent_contact FROM tbl_students JOIN tbl_instructors ON tbl_students.section_year = tbl_instructors.advisory WHERE CONCAT(tbl_instructors.lastname, ', ', tbl_instructors.firstname) = @Username";
-                DataTable dt = new DataTable();
 
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
@@ -67,21 +70,53 @@ namespace RFID_Attendance_Project
 
         private void btnExport_Click(object sender, EventArgs e)
         {
+            ExportToExcel(dgvDetailsResult);
+        }
+
+        private void ExportToExcel(DataGridView dataGridView)
+        {
             try
             {
-                SaveFileDialog openFileDialog = new SaveFileDialog();
-                openFileDialog.InitialDirectory = "C:\\Users\\TEDD\\Documents";
-                openFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|Excel 2007 (*.xls)|*.xls";
-                openFileDialog.FilterIndex = 1;
-
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                using (ExcelPackage excelPackage = new ExcelPackage())
                 {
-                    DataTable dt = Excel.DataGridView_To_Datatable(dgvDetailsResult);
-                    dt.exportToExcel(openFileDialog.FileName);
-                    MessageBox.Show("Table exported successfully", "Export Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Sheet1");
+
+                    for (int i = 1; i <= dataGridView.Columns.Count; i++)
+                    {
+                        worksheet.Cells[1, i].Value = dataGridView.Columns[i - 1].HeaderText;
+                    }
+
+                    for (int i = 0; i < dataGridView.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < dataGridView.Columns.Count; j++)
+                        {
+                            worksheet.Cells[i + 2, j + 1].Value = dataGridView.Rows[i].Cells[j].Value.ToString();
+                        }
+                    }
+
+                    SaveFileDialog saveFileDialog = new SaveFileDialog();
+                    saveFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+                    saveFileDialog.FilterIndex = 1;
+                    saveFileDialog.RestoreDirectory = true;
+
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        string filePath = saveFileDialog.FileName;
+                        excelPackage.SaveAs(new System.IO.FileInfo(filePath));
+                        MessageBox.Show("Export Successful!");
+                    }
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            DataView dv = dt.DefaultView;
+            dv.RowFilter = string.Format("firstname LIKE '%{0}%' OR middlename LIKE '%{0}%' OR lastname LIKE '%{0}%'  OR student_id LIKE '%{0}%'", textBox1.Text);
         }
     }
 }

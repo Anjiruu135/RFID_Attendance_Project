@@ -39,6 +39,7 @@
             this.btnDashboard = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.panelContainer = new System.Windows.Forms.Panel();
+            this.btnRecords = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -80,6 +81,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.MediumPurple;
+            this.panel2.Controls.Add(this.btnRecords);
             this.panel2.Controls.Add(this.btnSettings);
             this.panel2.Controls.Add(this.btnInstructors);
             this.panel2.Controls.Add(this.btnStudents);
@@ -98,9 +100,9 @@
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSettings.ForeColor = System.Drawing.Color.White;
-            this.btnSettings.Location = new System.Drawing.Point(906, 0);
+            this.btnSettings.Location = new System.Drawing.Point(895, 0);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(200, 35);
+            this.btnSettings.Size = new System.Drawing.Size(211, 35);
             this.btnSettings.TabIndex = 6;
             this.btnSettings.Text = "Settings";
             this.btnSettings.UseVisualStyleBackColor = false;
@@ -113,9 +115,9 @@
             this.btnInstructors.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInstructors.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInstructors.ForeColor = System.Drawing.Color.White;
-            this.btnInstructors.Location = new System.Drawing.Point(498, 0);
+            this.btnInstructors.Location = new System.Drawing.Point(448, 0);
             this.btnInstructors.Name = "btnInstructors";
-            this.btnInstructors.Size = new System.Drawing.Size(250, 35);
+            this.btnInstructors.Size = new System.Drawing.Size(225, 35);
             this.btnInstructors.TabIndex = 3;
             this.btnInstructors.Text = "Instructors";
             this.btnInstructors.UseVisualStyleBackColor = false;
@@ -128,9 +130,9 @@
             this.btnStudents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStudents.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStudents.ForeColor = System.Drawing.Color.White;
-            this.btnStudents.Location = new System.Drawing.Point(249, 0);
+            this.btnStudents.Location = new System.Drawing.Point(224, 0);
             this.btnStudents.Name = "btnStudents";
-            this.btnStudents.Size = new System.Drawing.Size(250, 35);
+            this.btnStudents.Size = new System.Drawing.Size(225, 35);
             this.btnStudents.TabIndex = 2;
             this.btnStudents.Text = "Students";
             this.btnStudents.UseVisualStyleBackColor = false;
@@ -145,7 +147,7 @@
             this.btnDashboard.ForeColor = System.Drawing.Color.White;
             this.btnDashboard.Location = new System.Drawing.Point(0, 0);
             this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(250, 35);
+            this.btnDashboard.Size = new System.Drawing.Size(225, 35);
             this.btnDashboard.TabIndex = 1;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.UseVisualStyleBackColor = false;
@@ -175,6 +177,21 @@
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(1234, 491);
             this.panelContainer.TabIndex = 4;
+            // 
+            // btnRecords
+            // 
+            this.btnRecords.AutoSize = true;
+            this.btnRecords.BackColor = System.Drawing.Color.MediumPurple;
+            this.btnRecords.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRecords.ForeColor = System.Drawing.Color.White;
+            this.btnRecords.Location = new System.Drawing.Point(672, 0);
+            this.btnRecords.Name = "btnRecords";
+            this.btnRecords.Size = new System.Drawing.Size(225, 35);
+            this.btnRecords.TabIndex = 8;
+            this.btnRecords.Text = "Records";
+            this.btnRecords.UseVisualStyleBackColor = false;
+            this.btnRecords.Click += new System.EventHandler(this.btnRecords_Click);
             // 
             // FormAdminMain
             // 
@@ -211,5 +228,6 @@
         private System.Windows.Forms.Button btnStudents;
         private System.Windows.Forms.Button btnInstructors;
         private System.Windows.Forms.Button btnSettings;
+        private System.Windows.Forms.Button btnRecords;
     }
 }

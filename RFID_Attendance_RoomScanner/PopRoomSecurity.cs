@@ -27,7 +27,7 @@ namespace RFID_Attendance_RoomScanner
             {
                 using (MySqlCommand cmd = new MySqlCommand(query, con))
                 {
-                    cmd.Parameters.AddWithValue("@Password", password);
+                    cmd.Parameters.AddWithValue("@Password", Encrypt.HashString(password));
                     con.Open();
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {

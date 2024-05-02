@@ -319,12 +319,13 @@ namespace RFID_Attendance_Project.UserControls
             }
         }
 
+        DataTable dt = new DataTable();
+
         private async Task LoadStudents()
         {
             try
             {
                 string loadStudentsQuery = "SELECT student_id, tbl_students.firstname, tbl_students.middlename, tbl_students.lastname, tbl_students.section_year, tbl_students.card_id,  tbl_students.contact, parent_contact, tbl_students.picture FROM tbl_students JOIN tbl_instructors ON tbl_students.section_year = tbl_instructors.advisory WHERE CONCAT(tbl_instructors.lastname, ', ', tbl_instructors.firstname) = @Username";
-                DataTable dt = new DataTable();
 
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
@@ -533,6 +534,12 @@ namespace RFID_Attendance_Project.UserControls
         {
             PopStudentSummary dialog = new PopStudentSummary();
             dialog.ShowDialog();
+        }
+
+        private void txtSearchStudent_TextChanged(object sender, EventArgs e)
+        {
+            DataView dv = dt.DefaultView;
+            dv.RowFilter = string.Format("firstname LIKE '%{0}%' OR middlename LIKE '%{0}%' OR lastname LIKE '%{0}%'  OR student_id LIKE '%{0}%'", txtSearchStudent.Text);
         }
     }
 }

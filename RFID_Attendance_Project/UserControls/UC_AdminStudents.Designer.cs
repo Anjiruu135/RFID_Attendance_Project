@@ -54,6 +54,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvStudentList = new System.Windows.Forms.DataGridView();
+            this.chartStudentPercentage = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.picStudent = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.student_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,9 +66,6 @@
             this.contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.parent_contact = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.picture = new System.Windows.Forms.DataGridViewImageColumn();
-            this.chartStudentPercentage = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.picStudent = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartStudentPercentage)).BeginInit();
@@ -309,6 +309,7 @@
             this.txtSearchStudent.Name = "txtSearchStudent";
             this.txtSearchStudent.Size = new System.Drawing.Size(169, 20);
             this.txtSearchStudent.TabIndex = 111;
+            this.txtSearchStudent.TextChanged += new System.EventHandler(this.txtSearchStudent_TextChanged);
             // 
             // label2
             // 
@@ -364,81 +365,6 @@
             this.dgvStudentList.TabIndex = 117;
             this.dgvStudentList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudentList_CellClick);
             // 
-            // student_id
-            // 
-            this.student_id.DataPropertyName = "student_id";
-            this.student_id.HeaderText = "Student ID";
-            this.student_id.Name = "student_id";
-            this.student_id.ReadOnly = true;
-            this.student_id.Width = 85;
-            // 
-            // lastname
-            // 
-            this.lastname.DataPropertyName = "lastname";
-            this.lastname.HeaderText = "Last Name";
-            this.lastname.Name = "lastname";
-            this.lastname.ReadOnly = true;
-            // 
-            // firstname
-            // 
-            this.firstname.DataPropertyName = "firstname";
-            this.firstname.HeaderText = "First Name";
-            this.firstname.Name = "firstname";
-            this.firstname.ReadOnly = true;
-            this.firstname.Width = 125;
-            // 
-            // middlename
-            // 
-            this.middlename.DataPropertyName = "middlename";
-            this.middlename.HeaderText = "Middle Name";
-            this.middlename.Name = "middlename";
-            this.middlename.ReadOnly = true;
-            // 
-            // section_year
-            // 
-            this.section_year.DataPropertyName = "section_year";
-            this.section_year.HeaderText = "section_year";
-            this.section_year.Name = "section_year";
-            this.section_year.ReadOnly = true;
-            this.section_year.Visible = false;
-            this.section_year.Width = 92;
-            // 
-            // card_id
-            // 
-            this.card_id.DataPropertyName = "card_id";
-            this.card_id.HeaderText = "card_id";
-            this.card_id.Name = "card_id";
-            this.card_id.ReadOnly = true;
-            this.card_id.Visible = false;
-            this.card_id.Width = 67;
-            // 
-            // contact
-            // 
-            this.contact.DataPropertyName = "contact";
-            this.contact.HeaderText = "contact";
-            this.contact.Name = "contact";
-            this.contact.ReadOnly = true;
-            this.contact.Visible = false;
-            this.contact.Width = 68;
-            // 
-            // parent_contact
-            // 
-            this.parent_contact.DataPropertyName = "parent_contact";
-            this.parent_contact.HeaderText = "parent_contact";
-            this.parent_contact.Name = "parent_contact";
-            this.parent_contact.ReadOnly = true;
-            this.parent_contact.Visible = false;
-            this.parent_contact.Width = 104;
-            // 
-            // picture
-            // 
-            this.picture.DataPropertyName = "picture";
-            this.picture.HeaderText = "picture";
-            this.picture.Name = "picture";
-            this.picture.ReadOnly = true;
-            this.picture.Visible = false;
-            this.picture.Width = 45;
-            // 
             // chartStudentPercentage
             // 
             this.chartStudentPercentage.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -483,6 +409,80 @@
             this.label3.Size = new System.Drawing.Size(152, 29);
             this.label3.TabIndex = 110;
             this.label3.Text = "Student Info";
+            // 
+            // student_id
+            // 
+            this.student_id.DataPropertyName = "student_id";
+            this.student_id.HeaderText = "Student ID";
+            this.student_id.Name = "student_id";
+            this.student_id.ReadOnly = true;
+            this.student_id.Width = 85;
+            // 
+            // lastname
+            // 
+            this.lastname.DataPropertyName = "lastname";
+            this.lastname.HeaderText = "Last Name";
+            this.lastname.Name = "lastname";
+            this.lastname.ReadOnly = true;
+            // 
+            // firstname
+            // 
+            this.firstname.DataPropertyName = "firstname";
+            this.firstname.HeaderText = "First Name";
+            this.firstname.Name = "firstname";
+            this.firstname.ReadOnly = true;
+            this.firstname.Width = 125;
+            // 
+            // middlename
+            // 
+            this.middlename.DataPropertyName = "middlename";
+            this.middlename.HeaderText = "Middle Name";
+            this.middlename.Name = "middlename";
+            this.middlename.ReadOnly = true;
+            // 
+            // section_year
+            // 
+            this.section_year.DataPropertyName = "section_year";
+            this.section_year.HeaderText = "Section";
+            this.section_year.Name = "section_year";
+            this.section_year.ReadOnly = true;
+            this.section_year.Width = 92;
+            // 
+            // card_id
+            // 
+            this.card_id.DataPropertyName = "card_id";
+            this.card_id.HeaderText = "card_id";
+            this.card_id.Name = "card_id";
+            this.card_id.ReadOnly = true;
+            this.card_id.Visible = false;
+            this.card_id.Width = 67;
+            // 
+            // contact
+            // 
+            this.contact.DataPropertyName = "contact";
+            this.contact.HeaderText = "contact";
+            this.contact.Name = "contact";
+            this.contact.ReadOnly = true;
+            this.contact.Visible = false;
+            this.contact.Width = 68;
+            // 
+            // parent_contact
+            // 
+            this.parent_contact.DataPropertyName = "parent_contact";
+            this.parent_contact.HeaderText = "parent_contact";
+            this.parent_contact.Name = "parent_contact";
+            this.parent_contact.ReadOnly = true;
+            this.parent_contact.Visible = false;
+            this.parent_contact.Width = 104;
+            // 
+            // picture
+            // 
+            this.picture.DataPropertyName = "picture";
+            this.picture.HeaderText = "picture";
+            this.picture.Name = "picture";
+            this.picture.ReadOnly = true;
+            this.picture.Visible = false;
+            this.picture.Width = 45;
             // 
             // UC_AdminStudents
             // 
@@ -536,6 +536,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvStudentList;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartStudentPercentage;
+        private System.Windows.Forms.PictureBox picStudent;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn student_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastname;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstname;
@@ -545,8 +548,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn contact;
         private System.Windows.Forms.DataGridViewTextBoxColumn parent_contact;
         private System.Windows.Forms.DataGridViewImageColumn picture;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartStudentPercentage;
-        private System.Windows.Forms.PictureBox picStudent;
-        private System.Windows.Forms.Label label3;
     }
 }

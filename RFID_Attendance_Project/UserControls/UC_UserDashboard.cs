@@ -157,7 +157,7 @@ namespace RFID_Attendance_Project.UserControls
                     }
 
                     // ADVISORY HIGHEST ABSENTS PERCENTAGE
-                    string AdvisoryPercentageQuery = $"SELECT * FROM view_total_student_attendance  WHERE Section = '{FormLogin.advisory_display}' ORDER BY `view_total_student_attendance`.`Total_Attendance` DESC;";
+                    string AdvisoryPercentageQuery = $"SELECT * FROM view_total_student_attendance  WHERE Section = '{FormLogin.advisory_display}' ORDER BY `view_total_student_attendance`.`Total_Attendance` ASC LIMIT 6;";
                     using (MySqlCommand command = new MySqlCommand(AdvisoryPercentageQuery, connection))
                     {
                         using (DbDataReader reader = await command.ExecuteReaderAsync())
@@ -216,7 +216,15 @@ namespace RFID_Attendance_Project.UserControls
 
         private void timerCarousel_Tick(object sender, EventArgs e)
         {
-
+            if (imageDataTable.Rows.Count > 0)
+            {
+                currentIndex = (currentIndex + 1) % imageDataTable.Rows.Count;
+                DisplayCurrentImage();
+            }
+            else
+            {
+                currentIndex = 0;
+            }
         }
 
 

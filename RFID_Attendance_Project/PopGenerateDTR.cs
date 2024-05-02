@@ -11,6 +11,7 @@ using RFID_Attendance_Project.UserControls;
 using System.IO;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
+using PdfSharp;
 
 namespace RFID_Attendance_Project
 {
@@ -95,6 +96,7 @@ namespace RFID_Attendance_Project
 
             PdfDocument document = new PdfDocument();
             PdfPage page = document.AddPage();
+            page.Size = PageSize.Legal;
             XGraphics gfx = XGraphics.FromPdfPage(page);
 
             XImage image = XImage.FromStream(new MemoryStream(imageBytes));

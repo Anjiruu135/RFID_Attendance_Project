@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_UserDashboard));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -222,22 +222,22 @@
             this.chartTotalStudents.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.chartTotalStudents.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.chartTotalStudents.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea4.Name = "ChartArea1";
-            this.chartTotalStudents.ChartAreas.Add(chartArea4);
+            chartArea1.Name = "ChartArea1";
+            this.chartTotalStudents.ChartAreas.Add(chartArea1);
             this.chartTotalStudents.Location = new System.Drawing.Point(402, 234);
             this.chartTotalStudents.Name = "chartTotalStudents";
             this.chartTotalStudents.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series3.Color = System.Drawing.Color.White;
-            series3.Name = "Series1";
-            this.chartTotalStudents.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Color = System.Drawing.Color.White;
+            series1.Name = "Series1";
+            this.chartTotalStudents.Series.Add(series1);
             this.chartTotalStudents.Size = new System.Drawing.Size(185, 234);
             this.chartTotalStudents.TabIndex = 63;
             this.chartTotalStudents.Text = "chart2";
-            title4.Name = "Title1";
-            title4.Text = "No. of Students in your Advisory";
-            this.chartTotalStudents.Titles.Add(title4);
+            title1.Name = "Title1";
+            title1.Text = "No. of Students in your Advisory";
+            this.chartTotalStudents.Titles.Add(title1);
             // 
             // picEvents
             // 
@@ -282,40 +282,44 @@
             this.chartAdvisoryPercentage.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.chartAdvisoryPercentage.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.chartAdvisoryPercentage.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea5.Name = "ChartArea1";
-            this.chartAdvisoryPercentage.ChartAreas.Add(chartArea5);
+            chartArea2.Name = "ChartArea1";
+            this.chartAdvisoryPercentage.ChartAreas.Add(chartArea2);
             this.chartAdvisoryPercentage.Location = new System.Drawing.Point(596, 234);
             this.chartAdvisoryPercentage.Name = "chartAdvisoryPercentage";
             this.chartAdvisoryPercentage.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chartAdvisoryPercentage.Size = new System.Drawing.Size(185, 234);
             this.chartAdvisoryPercentage.TabIndex = 70;
             this.chartAdvisoryPercentage.Text = "chart2";
-            title5.Name = "Title1";
-            title5.Text = "Advisory Attendance Percentage";
-            this.chartAdvisoryPercentage.Titles.Add(title5);
+            title2.Name = "Title1";
+            title2.Text = "Advisory Attendance Percentage";
+            this.chartAdvisoryPercentage.Titles.Add(title2);
             // 
             // chartStudentMostAbsent
             // 
             this.chartStudentMostAbsent.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.chartStudentMostAbsent.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.chartStudentMostAbsent.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea6.Name = "ChartArea1";
-            this.chartStudentMostAbsent.ChartAreas.Add(chartArea6);
+            chartArea3.Name = "ChartArea1";
+            this.chartStudentMostAbsent.ChartAreas.Add(chartArea3);
             this.chartStudentMostAbsent.Location = new System.Drawing.Point(20, 234);
             this.chartStudentMostAbsent.Name = "chartStudentMostAbsent";
             this.chartStudentMostAbsent.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series4.BorderWidth = 2;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series4.MarkerColor = System.Drawing.Color.Blue;
-            series4.Name = "Series1";
-            this.chartStudentMostAbsent.Series.Add(series4);
+            series2.BorderWidth = 2;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+            series2.MarkerColor = System.Drawing.Color.Blue;
+            series2.Name = "Series1";
+            this.chartStudentMostAbsent.Series.Add(series2);
             this.chartStudentMostAbsent.Size = new System.Drawing.Size(376, 234);
             this.chartStudentMostAbsent.TabIndex = 72;
             this.chartStudentMostAbsent.Text = "chart2";
-            title6.Name = "Title1";
-            title6.Text = "Students with Highest Percentage of Absents";
-            this.chartStudentMostAbsent.Titles.Add(title6);
+            title3.Name = "Title1";
+            title3.Text = "Students with Highest Percentage of Absents";
+            this.chartStudentMostAbsent.Titles.Add(title3);
+            // 
+            // timerCarousel
+            // 
+            this.timerCarousel.Tick += new System.EventHandler(this.timerCarousel_Tick);
             // 
             // UC_UserDashboard
             // 

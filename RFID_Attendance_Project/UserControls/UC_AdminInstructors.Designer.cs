@@ -52,7 +52,7 @@
             this.txtContact = new System.Windows.Forms.TextBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnChangePic = new System.Windows.Forms.Button();
-            this.txtSearchInstructor = new System.Windows.Forms.TextBox();
+            this.txtSearchBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvInstructorList = new System.Windows.Forms.DataGridView();
@@ -289,14 +289,15 @@
             this.btnChangePic.Visible = false;
             this.btnChangePic.Click += new System.EventHandler(this.btnChangePic_Click);
             // 
-            // txtSearchInstructor
+            // txtSearchBox
             // 
-            this.txtSearchInstructor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtSearchBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearchInstructor.Location = new System.Drawing.Point(145, 49);
-            this.txtSearchInstructor.Name = "txtSearchInstructor";
-            this.txtSearchInstructor.Size = new System.Drawing.Size(159, 20);
-            this.txtSearchInstructor.TabIndex = 36;
+            this.txtSearchBox.Location = new System.Drawing.Point(145, 49);
+            this.txtSearchBox.Name = "txtSearchBox";
+            this.txtSearchBox.Size = new System.Drawing.Size(159, 20);
+            this.txtSearchBox.TabIndex = 36;
+            this.txtSearchBox.TextChanged += new System.EventHandler(this.txtSearchBox_TextChanged);
             // 
             // label2
             // 
@@ -692,7 +693,7 @@
             // 
             // lblTotalHours
             // 
-            this.lblTotalHours.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblTotalHours.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotalHours.AutoSize = true;
             this.lblTotalHours.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(140)))), ((int)(((byte)(240)))));
             this.lblTotalHours.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -716,7 +717,7 @@
             this.Controls.Add(this.chrtInstructorHours);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnChangePic);
-            this.Controls.Add(this.txtSearchInstructor);
+            this.Controls.Add(this.txtSearchBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvInstructorList);
@@ -764,7 +765,7 @@
         private System.Windows.Forms.TextBox txtContact;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnChangePic;
-        private System.Windows.Forms.TextBox txtSearchInstructor;
+        private System.Windows.Forms.TextBox txtSearchBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvInstructorList;

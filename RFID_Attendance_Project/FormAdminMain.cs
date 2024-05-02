@@ -49,6 +49,7 @@ namespace RFID_Attendance_Project
             btnDashboard.Click += Button_Click;
             btnStudents.Click += Button_Click;
             btnInstructors.Click += Button_Click;
+            btnRecords.Click += Button_Click;
         }
 
         private void Button_Click(object sender, EventArgs e)
@@ -88,6 +89,12 @@ namespace RFID_Attendance_Project
         private void btnStudents_Click(object sender, EventArgs e)
         {
             UC_AdminStudents uc = new UC_AdminStudents();
+            addUserControl(uc);
+        }
+
+        private void btnRecords_Click(object sender, EventArgs e)
+        {
+            UC_AdminRecords uc = new UC_AdminRecords();
             addUserControl(uc);
         }
 
@@ -161,6 +168,48 @@ namespace RFID_Attendance_Project
             }
         }
 
+        private async Task PoolUsers()
+        {
+            string query = "SELECT * FROM view_attendance_users";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            List<Dictionary<string, string>> resultSet = new List<Dictionary<string, string>>();
+                            while (reader.Read())
+                            {
+                                Dictionary<string, string> row = new Dictionary<string, string>();
+                                for (int i = 0; i < reader.FieldCount; i++)
+                                {
+                                    if (reader.GetFieldType(i) == typeof(byte[]))
+                                    {
+                                        row[reader.GetName(i)] = Convert.ToBase64String((byte[])reader[i]);
+                                    }
+                                    else
+                                    {
+                                        row[reader.GetName(i)] = reader[i].ToString();
+                                    }
+                                }
+                                resultSet.Add(row);
+                            }
+                            string json = JsonConvert.SerializeObject(resultSet);
+                            File.WriteAllText("users.json", json);
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Error loading data: {ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btnSettings_Click(object sender, EventArgs e)
         {
             PopAdminSettings dialog = new PopAdminSettings();
@@ -170,6 +219,7 @@ namespace RFID_Attendance_Project
         private async void FormAdminMain_Shown(object sender, EventArgs e)
         {
             await PoolEvents();
+            await PoolUsers();
         }
     }
 }

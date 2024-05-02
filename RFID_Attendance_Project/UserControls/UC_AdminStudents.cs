@@ -39,6 +39,8 @@ namespace RFID_Attendance_Project.UserControls
             LoadStudents();
         }
 
+        DataTable dt = new DataTable();
+
         private async Task LoadStudents()
         {
             try
@@ -53,7 +55,6 @@ namespace RFID_Attendance_Project.UserControls
                     {
                         using (DbDataReader reader = await cmd.ExecuteReaderAsync())
                         {
-                            DataTable dt = new DataTable();
                             dt.Load(reader);
                             dgvStudentList.DataSource = dt;
                         }
@@ -166,6 +167,12 @@ namespace RFID_Attendance_Project.UserControls
         {
             PopAdminStudentSummary dialog = new PopAdminStudentSummary();
             dialog.ShowDialog();
+        }
+
+        private void txtSearchStudent_TextChanged(object sender, EventArgs e)
+        {
+            DataView dv = dt.DefaultView;
+            dv.RowFilter = string.Format("firstname LIKE '%{0}%' OR middlename LIKE '%{0}%' OR lastname LIKE '%{0}%'  OR student_id LIKE '%{0}%' OR setion_year LIKE '%{0}%'", txtSearchStudent.Text);
         }
     }
 }

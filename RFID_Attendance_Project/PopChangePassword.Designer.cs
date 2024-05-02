@@ -104,6 +104,7 @@
             this.txtPasswordCurrent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPasswordCurrent.Location = new System.Drawing.Point(278, 26);
             this.txtPasswordCurrent.Name = "txtPasswordCurrent";
+            this.txtPasswordCurrent.PasswordChar = '*';
             this.txtPasswordCurrent.Size = new System.Drawing.Size(165, 22);
             this.txtPasswordCurrent.TabIndex = 26;
             // 

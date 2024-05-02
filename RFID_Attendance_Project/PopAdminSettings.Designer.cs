@@ -32,6 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnChangeDB = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,11 +72,26 @@
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // btnChangeDB
+            // 
+            this.btnChangeDB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnChangeDB.BackColor = System.Drawing.Color.BlueViolet;
+            this.btnChangeDB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangeDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeDB.ForeColor = System.Drawing.Color.White;
+            this.btnChangeDB.Location = new System.Drawing.Point(150, 76);
+            this.btnChangeDB.Name = "btnChangeDB";
+            this.btnChangeDB.Size = new System.Drawing.Size(182, 30);
+            this.btnChangeDB.TabIndex = 25;
+            this.btnChangeDB.Text = "Change Target Database";
+            this.btnChangeDB.UseVisualStyleBackColor = false;
+            // 
             // PopAdminSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(359, 271);
+            this.Controls.Add(this.btnChangeDB);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -94,5 +110,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnChangeDB;
     }
 }

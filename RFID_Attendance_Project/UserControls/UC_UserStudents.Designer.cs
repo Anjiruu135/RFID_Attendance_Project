@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.txtSearchStudent = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -91,6 +91,7 @@
             this.txtSearchStudent.Name = "txtSearchStudent";
             this.txtSearchStudent.Size = new System.Drawing.Size(169, 20);
             this.txtSearchStudent.TabIndex = 24;
+            this.txtSearchStudent.TextChanged += new System.EventHandler(this.txtSearchStudent_TextChanged);
             // 
             // label2
             // 
@@ -225,21 +226,21 @@
             this.chartStudentPercentage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chartStudentPercentage.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.chartStudentPercentage.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea3.Name = "ChartArea1";
-            this.chartStudentPercentage.ChartAreas.Add(chartArea3);
+            chartArea1.Name = "ChartArea1";
+            this.chartStudentPercentage.ChartAreas.Add(chartArea1);
             this.chartStudentPercentage.Location = new System.Drawing.Point(887, 49);
             this.chartStudentPercentage.Name = "chartStudentPercentage";
             this.chartStudentPercentage.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series3.Name = "Series1";
-            this.chartStudentPercentage.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Name = "Series1";
+            this.chartStudentPercentage.Series.Add(series1);
             this.chartStudentPercentage.Size = new System.Drawing.Size(300, 300);
             this.chartStudentPercentage.TabIndex = 27;
             this.chartStudentPercentage.Text = "chart1";
-            title3.Name = "Title1";
-            title3.Text = "Student Attendance Percentage";
-            this.chartStudentPercentage.Titles.Add(title3);
+            title1.Name = "Title1";
+            title1.Text = "Student Attendance Percentage";
+            this.chartStudentPercentage.Titles.Add(title1);
             // 
             // picStudent
             // 
@@ -303,20 +304,20 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chartAttendancePerClass.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.chartAttendancePerClass.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea4.Name = "ChartArea1";
-            this.chartAttendancePerClass.ChartAreas.Add(chartArea4);
+            chartArea2.Name = "ChartArea1";
+            this.chartAttendancePerClass.ChartAreas.Add(chartArea2);
             this.chartAttendancePerClass.Location = new System.Drawing.Point(346, 355);
             this.chartAttendancePerClass.Name = "chartAttendancePerClass";
             this.chartAttendancePerClass.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series4.ChartArea = "ChartArea1";
-            series4.Name = "Series1";
-            this.chartAttendancePerClass.Series.Add(series4);
+            series2.ChartArea = "ChartArea1";
+            series2.Name = "Series1";
+            this.chartAttendancePerClass.Series.Add(series2);
             this.chartAttendancePerClass.Size = new System.Drawing.Size(841, 119);
             this.chartAttendancePerClass.TabIndex = 35;
             this.chartAttendancePerClass.Text = "chart1";
-            title4.Name = "Title1";
-            title4.Text = "Student Attendance Percentage per Class";
-            this.chartAttendancePerClass.Titles.Add(title4);
+            title2.Name = "Title1";
+            title2.Text = "Student Attendance Percentage per Class";
+            this.chartAttendancePerClass.Titles.Add(title2);
             // 
             // btnDelete
             // 

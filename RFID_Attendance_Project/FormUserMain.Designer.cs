@@ -166,7 +166,7 @@
             this.btnScanner.ForeColor = System.Drawing.Color.White;
             this.btnScanner.Location = new System.Drawing.Point(795, 0);
             this.btnScanner.Name = "btnScanner";
-            this.btnScanner.Size = new System.Drawing.Size(202, 35);
+            this.btnScanner.Size = new System.Drawing.Size(313, 35);
             this.btnScanner.TabIndex = 5;
             this.btnScanner.Text = "Class Attendance Scanner";
             this.btnScanner.UseVisualStyleBackColor = false;

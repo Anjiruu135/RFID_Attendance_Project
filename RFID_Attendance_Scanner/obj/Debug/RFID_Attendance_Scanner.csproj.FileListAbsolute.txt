@@ -1,7 +1,6 @@
 C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Scanner\bin\Debug\RFID_Attendance_Scanner.exe.config
 C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Scanner\bin\Debug\RFID_Attendance_Scanner.exe
 C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Scanner\bin\Debug\RFID_Attendance_Scanner.pdb
-C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Scanner\obj\Debug\RFID_Attendance_Scanner.csprojResolveAssemblyReference.cache
 C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Scanner\obj\Debug\RFID_Attendance_Scanner.FormScanner.resources
 C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Scanner\obj\Debug\RFID_Attendance_Scanner.Properties.Resources.resources
 C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Scanner\obj\Debug\RFID_Attendance_Scanner.csproj.GenerateResource.Cache
@@ -29,3 +28,4 @@ C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID
 C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Scanner\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Scanner\bin\Debug\Newtonsoft.Json.dll
 C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Scanner\bin\Debug\Newtonsoft.Json.xml
+C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Scanner\obj\Debug\RFID_Attendance_Scanner.csprojResolveAssemblyReference.cache

@@ -102,7 +102,7 @@ namespace RFID_Attendance_Project.UserControls
                         MySqlCommand cmd_user = new MySqlCommand(add_user, conn);
 
                         cmd_user.Parameters.AddWithValue("@UserId", txtInstructorId.Text);
-                        cmd_user.Parameters.AddWithValue("@Password", txtPassword.Text);
+                        cmd_user.Parameters.AddWithValue("@Password", Encrypt.HashString(txtPassword.Text));
                         cmd_user.Parameters.AddWithValue("@Name", txtLastName.Text + ", " + txtFirstName.Text);
 
                         conn.Open();
@@ -168,7 +168,7 @@ namespace RFID_Attendance_Project.UserControls
                         MySqlCommand cmd_user = new MySqlCommand(update_user, conn);
 
                         cmd_user.Parameters.AddWithValue("@UserId", txtInstructorId.Text);
-                        cmd_user.Parameters.AddWithValue("@Password", txtPassword.Text);
+                        cmd_user.Parameters.AddWithValue("@Password", Encrypt.HashString(txtPassword.Text));
                         cmd_user.Parameters.AddWithValue("@Name", txtLastName.Text + ", " + txtFirstName.Text);
 
                         conn.Open();
@@ -250,12 +250,13 @@ namespace RFID_Attendance_Project.UserControls
             }
         }
 
+        DataTable dt_instructors = new DataTable();
+
         private async Task LoadInstructors()
         {
             try
             {
                 string loadinstructors_query = "SELECT tbl_instructors.*, tbl_users.password FROM tbl_instructors JOIN tbl_users ON tbl_instructors.instructor_id = tbl_users.user_id WHERE user_type='user';";
-                DataTable dt = new DataTable();
 
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
@@ -264,10 +265,10 @@ namespace RFID_Attendance_Project.UserControls
                     {
                         using (DbDataReader reader = await cmd.ExecuteReaderAsync())
                         {
-                            dt.Load(reader);
+                            dt_instructors.Load(reader);
                         }
                     }
-                    dgvInstructorList.DataSource = dt;
+                    dgvInstructorList.DataSource = dt_instructors;
                 }
             }
             catch (Exception ex)
@@ -309,7 +310,7 @@ namespace RFID_Attendance_Project.UserControls
             cmbDepartment.Text = selected_department;
             txtRFID.Text = selected_rfid;
             txtContact.Text = selected_contact;
-            txtPassword.Text = selected_password;
+            txtPassword.Text = Encrypt.HashString(selected_password);
         }
 
         private void UploadPicture()
@@ -549,7 +550,7 @@ namespace RFID_Attendance_Project.UserControls
                         }
                     }
 
-                    // INSUTRUCTOR TOTAL HOURS
+                    // INSTRUCTOR TOTAL HOURS
                     string InstructorTotalHours = $@"
                         SELECT Instructor_ID, SUM(Total_Hours) as Total_Hours
                         FROM view_total_class_hours
@@ -560,18 +561,20 @@ namespace RFID_Attendance_Project.UserControls
                     {
                         using (DbDataReader reader = await command.ExecuteReaderAsync())
                         {
+                            lblTotalHours.Visible = false;
                             chrtInstructorTotalHours.Series.Clear();
                             while (await reader.ReadAsync())
                             {
                                 double totalhours = Convert.ToInt32(reader["Total_Hours"]);
+
+                                lblTotalHours.Visible = true;
+                                lblTotalHours.Text = $"{totalhours} Hours";
 
                                 Series series_totalstudents = chrtInstructorTotalHours.Series.Add("Total_Hours");
                                 series_totalstudents.ChartType = SeriesChartType.Pie;
                                 series_totalstudents.Points.Clear();
                                 series_totalstudents.Points.AddY(totalhours);
                                 series_totalstudents.Points[0].Label = "";
-                                lblTotalHours.Visible = true;
-                                lblTotalHours.Text = $"{totalhours} Hours";
                             }
                         }
                     }
@@ -579,9 +582,9 @@ namespace RFID_Attendance_Project.UserControls
             }
             catch (Exception ex)
             {
+                lblTotalHours.Visible = false;
                 chrtInstructorHours.Series[0].Points.Clear();
                 chrtInstructorTotalHours.Series.Clear();
-                lblTotalHours.Visible = false;
             }
         }
 
@@ -615,6 +618,12 @@ namespace RFID_Attendance_Project.UserControls
         {
             PopAdminInstructorSummary dialog = new PopAdminInstructorSummary();
             dialog.ShowDialog();
+        }
+
+        private void txtSearchBox_TextChanged(object sender, EventArgs e)
+        {
+            DataView dv = dt_instructors.DefaultView;
+            dv.RowFilter = string.Format("firstname LIKE '%{0}%' OR middlename LIKE '%{0}%' OR lastname LIKE '%{0}%'  OR instructor_id LIKE '%{0}%' OR advisory LIKE '%{0}%' OR department LIKE '%{0}%'", txtSearchBox.Text);
         }
     }
 }

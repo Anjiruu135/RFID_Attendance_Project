@@ -35,11 +35,11 @@ namespace RFID_Attendance_Project.UserControls
             }
         }
 
+        DataTable dt = new DataTable();
+
         private async Task Classes()
         {
             string loadschedules_query = "SELECT SUBSTRING_INDEX(schedule_id, ':', 1) AS class_name FROM tbl_schedule JOIN tbl_instructors ON tbl_schedule.instructor_id = tbl_instructors.instructor_id WHERE CONCAT(tbl_instructors.lastname, ', ', tbl_instructors.firstname) = @Instructor GROUP BY SUBSTRING_INDEX(schedule_id, ':', 1) ORDER BY schedule_id ASC";
-
-            DataTable dt = new DataTable();
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -205,7 +205,7 @@ namespace RFID_Attendance_Project.UserControls
                         AND tbl_classattendance.schedule_id LIKE '{selected_class}%' 
                         WHERE view_attendance_users.user_type = 'student' AND view_attendance_users.section = '{holdClassSection}'
                         GROUP BY view_attendance_users.user_id 
-                        ORDER BY attendance DESC 
+                        ORDER BY attendance ASC 
                         LIMIT 6;
                     ";
 
@@ -270,6 +270,12 @@ namespace RFID_Attendance_Project.UserControls
         {
             PopAttendanceSummary dialog = new PopAttendanceSummary();
             dialog.ShowDialog();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            DataView dv = dt.DefaultView;
+            dv.RowFilter = string.Format("class_name LIKE '%{0}%'", txtSearchBox.Text);
         }
     }
 }

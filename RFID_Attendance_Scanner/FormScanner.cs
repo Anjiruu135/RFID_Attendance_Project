@@ -269,7 +269,7 @@ namespace RFID_Attendance_Scanner
             }
             catch (MySqlException ex)
             {
-
+                MessageBox.Show($"Error loading data: {ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

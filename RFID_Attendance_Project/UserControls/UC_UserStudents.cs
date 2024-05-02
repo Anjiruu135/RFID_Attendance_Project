@@ -162,6 +162,8 @@ namespace RFID_Attendance_Project.UserControls
         private void btnClear_Click(object sender, EventArgs e)
         {
             ClearForm();
+            chartAttendancePerClass.Series[0].Points.Clear();
+            chartStudentPercentage.Series.Clear();
         }
 
         private void btnUploadPic_Click(object sender, EventArgs e)
@@ -335,6 +337,7 @@ namespace RFID_Attendance_Project.UserControls
                         cmd.Parameters.AddWithValue("@Username", FormLogin.username_display);
                         using (DbDataReader reader = await cmd.ExecuteReaderAsync())
                         {
+                            dt.Clear();
                             dt.Load(reader);
                         }
                     }

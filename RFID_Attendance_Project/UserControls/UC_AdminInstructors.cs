@@ -238,6 +238,9 @@ namespace RFID_Attendance_Project.UserControls
         private void btnClear_Click(object sender, EventArgs e)
         {
             ClearForm();
+            lblTotalHours.Visible = false;
+            chrtInstructorHours.Series[0].Points.Clear();
+            chrtInstructorTotalHours.Series.Clear();
         }
 
         private async void dgvInstructorList_CellClick(object sender, DataGridViewCellEventArgs e)

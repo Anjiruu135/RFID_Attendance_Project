@@ -28,4 +28,3 @@ C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID
 C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Scanner\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Scanner\bin\Debug\Newtonsoft.Json.dll
 C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Scanner\bin\Debug\Newtonsoft.Json.xml
-C:\Users\TEDD\documents\visual studio 2015\Projects\RFID_Attendance_Project\RFID_Attendance_Scanner\obj\Debug\RFID_Attendance_Scanner.csprojResolveAssemblyReference.cache
